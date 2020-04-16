@@ -73,7 +73,7 @@ model.rss = {
       url: undefined,
       height: undefined,
       width: undefined
-    }
+    },
     itunes: {
       authors: [{
         name: undefined,
