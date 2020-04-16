@@ -187,6 +187,18 @@ function getItemEnclosures(node) {
   });
 }
 
+function getMedia(node) {
+  const contents = utils.getChildElements(node, 'media:content');
+
+  return contents.map(function(content) {
+    return {
+      url: content.getAttribute('url'),
+      width: content.getAttribute('width'),
+      height: content.getAttribute('height')
+    }
+  });
+}
+
 function mapItems(document) {
   const itemNodes = utils.getElements(document, 'item');
 
@@ -201,6 +213,7 @@ function mapItems(document) {
       categories: getItemCategories(item),
       published: getItemPublished(item),
       enclosures: getItemEnclosures(item),
+      media: getMedia(item),
       itunes: itunesParser.parseItem(item)
     };
   });
