@@ -42,5 +42,5 @@ exports.getElementTextContentArray = function (node, tagName, namespace) {
 exports.getElementTextContent = function (node, tagName, namespace) {
   const array = this.getElementTextContentArray(node, tagName, namespace);
 
-  return array.length === 0 ? undefined : he.encode(array[0]);
+  return array.length === 0 ? undefined : he.decode(array[0]);
 };
